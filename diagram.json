@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "Samad Khan",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 4.7, "left": 4.6, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -92, "left": 165.42, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 2.4,
+      "left": 251.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "pir1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pir1:VCC", "esp:VIN", "red", [ "v0" ] ],
+    [ "pir1:OUT", "esp:D19", "green", [ "v0" ] ],
+    [ "esp:GND.2", "bz1:1", "black", [ "h-28.8", "v86.3", "h297.6" ] ],
+    [ "bz1:2", "esp:D2", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
